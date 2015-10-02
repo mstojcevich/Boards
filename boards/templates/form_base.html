@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/parsley.js/2.1.2/parsley.min.js" defer></script>
+    <div class="light-container" style="max-width: 400px; margin: auto">
+    <div class="header-text">
+        {% block form_label %}{% endblock %}
+    </div>
+    <div class="light-subsection">
+    <form id="form" method="post" action="{{ request.path }}" data-parsley-validate>
+    <dl>
+            {% block fields %}{% endblock %}
+    </dl>
+    <p><input type='submit' value='Create Board'>
+    </form>
+    </div>
+    </div>
+{% endblock %}

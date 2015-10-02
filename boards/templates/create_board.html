@@ -1,0 +1,9 @@
+{% extends "form_base.html" %}
+{% block title %}Creating a Board{% endblock %}
+{% block form_label %}Create a Board{% endblock %}
+{% block fields %}
+    {% from "_formhelpers.html" import render_field %}
+    {{ render_field(form.title) }}
+    {{ render_field(form.name) }}
+    {{ render_field(form.private) }}
+{% endblock %}

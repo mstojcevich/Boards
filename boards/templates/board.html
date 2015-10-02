@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% block title %}{{ board_title }}{% endblock %}
+{% block content %}
+    <div class="top-bar">
+        <a href="{{ url_for('view_board', board_name=board_name) }}" class="header-text">
+            {{ board_title }}
+        </a>
+        <div class="topright-text">
+            <a href="{{ url_for('create_post', board_name=board_name) }}">New Post</a>
+            <img src="/static/images/icon-menu.svg" id="sidebarOpen" onclick="openSidebar()"/>
+        </div>
+    </div>
+
+    {% block posts %}
+    <div class="post-container">
+        <noscript>
+            <div class="alert-post">
+                <div class="post-thumbnail">
+                    !
+                </div>
+                <div class="post-title">
+                    Enable Javascript
+                </div>
+                <div class="post-uploader">
+                    Javascript is needed for much of the site functionality
+                </div>
+                <div class="post-url">
+                    http://enable-javascript.com/
+                </div>
+            </div>
+        </noscript>
+        {% for post in posts %}
+            <div class="post">
+                <div class="post-thumbnail-container">
+                <img class="post-thumbnail" src="{{ post.thumbnail }}"/>
+                </div>
+                <a class="post-title" href="{{ post.url }}">
+                    {{ post.title }}
+                </a>
+                <div class="post-uploader">
+                    By marcusant
+                </div>
+                <div class="post-url">
+                    {{ post.url }}
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+    {% endblock %}
+
+    <div class="sidebar" id="sidebar" style="animation:none"> {# animation:none so that the animation doesn't happen before the sidebar opens #}
+    {% if sidebar_markdown %}
+        <h2>{{ board_title }}</h2>
+        <button>Subscribe</button>
+        <button>Moderation Panel</button>
+        {{ sidebar_markdown|markdown }}
+    {% endif %}
+    </div>
+{% endblock %}

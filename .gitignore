@@ -1,0 +1,22 @@
+# Lambda development database
+/lmda/dev.db
+
+# PyCharm/IDEA
+*.iml
+.idea/
+*.ipr
+*.iws
+/out/
+
+# Compiled Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Webassets
+.webassets-cache
+
+# Compiled static assets
+/boards/static/*.js
+/boards/static/*.css
+

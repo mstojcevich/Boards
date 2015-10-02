@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}{% endblock %}</title>
+        {% assets "sass_packed" %}
+            <link rel="stylesheet" type="text/css" href="{{ ASSET_URL }}">
+        {% endassets %}
+        {% assets "js_packed" %}
+            <script src="{{ ASSET_URL }}" type="text/javascript" async></script>
+        {% endassets %}
+{#        <link rel="shortcut icon" type="image/png" href="/images/favicon.png">#}
+    </head>
+    <body>
+        <img class="boards-logo" src="/static/images/logo.png">
+        <div class="login-header">Want to join in?{{ ' ' }}<a href="">Login</a>{{ ' ' }}or{{ ' ' }}<a href="">Register</a></div>
+        <div class="clearfix"></div>
+        {% block content %}{% endblock %}
+    </body>
+</html>

@@ -1,0 +1,15 @@
+{% extends "form_base.html" %}
+
+{% block title %}
+    New Post |{{ ' ' }}{{ board_title }}
+{% endblock %}
+
+{% block form_label %}
+    New Post in{{ ' ' }}{{ board_title }}
+{% endblock %}
+
+{% block fields %} {# Replace posts with the form #}
+    {% from "_formhelpers.html" import render_field %}
+    {{ render_field(form.title) }}
+    {{ render_field(form.url) }}
+{% endblock %}
